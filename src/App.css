@@ -1,3 +1,22 @@
 body {
   margin: 0;
 }
+
+.sidebar-button {
+  display: flex;
+  font-weight: 500;
+  background-color: #000;
+  border: none;
+  color: white;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+}
+
+.bg-conversation {
+  background-color: #343541;
+}
