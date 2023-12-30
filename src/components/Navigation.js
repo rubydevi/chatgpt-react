@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { FaSignOutAlt } from 'react-icons/fa';
 import { useNavigation } from './NavigationContext';
 import logo from '../assets/app-logo.jpg';
 import NavFooter from './NavFooter';
@@ -52,35 +55,37 @@ const Navigation = () => {
         <NavBarMobile />
       </div> */}
 
-      <div className="d-none d-md-block">
+      <div className="d-none d-md-block" style={{ width: '13%' }}>
         <div
-          className={`position-fixed top-0 start-0 vh-100 bg-light border-end d-flex flex-column ${
+          className={`position-fixed top-0 start-0 vh-100 border-end d-flex flex-column ${
             isOpen && isMobile ? 'w-50' : 'w-0'
           }`}
           id="sidebar-wrapper"
+          style={{ width: '13%', backgroundColor: '#000' }}
         >
           <div className="sidebar-heading ps-4">
-            <img
-              alt="Logo"
-              src={logo}
-              className="img-fluid"
-              style={{ width: '150px', borderRadius: '50%' }}
-            />
+            <Link to="/" className="sidebar-button">
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <img
+                  alt="Logo"
+                  src={logo}
+                  className="img-fluid"
+                  style={{ width: '15%', borderRadius: '50%' }}
+                />
+                <span style={{ marginLeft: '10px' }}>New chat</span>
+                <FontAwesomeIcon icon={faEdit} style={{ marginLeft: '5px' }} />
+              </div>
+            </Link>
           </div>
           {authToken ? (
             <div className="list-group list-group-flush flex-grow-1">
-              <NavLink
-                to="/"
-                className="list-group-item list-group-item-action"
-              >
-                ChatGPT
-              </NavLink>
               <button
                 disabled={!authToken}
                 onClick={handleLogout}
                 type="button"
-                className="list-group-item list-group-item-action "
+                className="list-group-item list-group-item-action"
               >
+                <FaSignOutAlt className="ms-2" />
                 Log Out
               </button>
               <NavFooter />
