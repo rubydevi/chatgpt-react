@@ -2,18 +2,18 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { NavigationProvider } from './components/NavigationContext';
 import Navigation from './components/Navigation';
-// import './App.css';
+import './App.css';
 import Login from './components/Login';
 import Register from './components/Register';
 import RequireAuth from './components/RequireAuth';
-import Test from './components/Test';
+import Conversation from './components/Conversation';
 
 const App = () => (
   <NavigationProvider>
     <div className="container-fluid main-height ">
-      <div className="">
+      <div className="row">
         <Navigation />
-        <main className="col">
+        <main className="col p-0">
           <Routes>
             <Route
               path="/login"
@@ -32,7 +32,7 @@ const App = () => (
                 exact
                 path="/"
                 element={(
-                  <Test />
+                  <Conversation />
                 )}
               />
             </Route>

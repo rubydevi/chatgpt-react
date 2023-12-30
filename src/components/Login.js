@@ -83,7 +83,15 @@ const Login = () => {
   };
 
   return (
-    <section className="">
+    <section
+      className="d-flex vh-100"
+      style={{
+        width: '100%',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
       <p
         ref={errRef}
         className={errMsg ? 'errMsg' : 'offscreen'}
@@ -91,8 +99,8 @@ const Login = () => {
       >
         {errMsg}
       </p>
-      <h1 className="">Sign In</h1>
-      <form onSubmit={handleSubmit} className="">
+      <h1 className="">Welcome back</h1>
+      <form onSubmit={handleSubmit} className="d-flex flex-column">
         <label htmlFor="email">Email:</label>
         <input
           type="email"
@@ -101,6 +109,7 @@ const Login = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           autoComplete="on"
+          className="form-control"
           required
         />
         <label htmlFor="password">Password:</label>
@@ -110,9 +119,10 @@ const Login = () => {
           value={pwd}
           onChange={(e) => setPwd(e.target.value)}
           autoComplete="on"
+          className="form-control"
           required
         />
-        <button type="submit" className="">
+        <button type="submit" className="btn btn-primary">
           Sign In
         </button>
       </form>
